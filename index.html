@@ -1,13 +1,59 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <title>Hola a todos</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validar Pista</title>
+    <style>
+        body {
+            background-color: purple;
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px;
+            font-size: 16px;
+            background-color: white;
+            color: black;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-  <h1>hola a todos!</h1>
-  <br>
-  <p>soy adriannn amo a geliiii</p>
-  <br>
-  <img src="https://media.tenor.com/yTHoLS82szwAAAAM/pato-girando.gif" />
+
+<div class="container">
+    <h2>Ingrese la pista/palabra clave</h2>
+    <form method="POST">
+        <input type="text" name="clave" required>
+        <button type="submit">Enviar</button>
+    </form>
+
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $clave = strtolower(trim($_POST["clave"])); // Convierte a minúsculas y elimina espacios
+        $pistas = [
+            "gato" => "<img src='https://placekitten.com/300/200' alt='Gatito'>",
+            "secreto" => "<p>El secreto de la vida es ser feliz</p>"
+        ];
+
+        if (array_key_exists($clave, $pistas)) {
+            echo "<script>alert('¡Enhorabuena!');</script>";
+            echo "<div style='margin-top:20px;'>".$pistas[$clave]."</div>";
+        } else {
+            echo "<script>alert('Nou, esta no es la pista que estamos buscando');</script>";
+        }
+    }
+    ?>
+</div>
+
 </body>
 </html>
