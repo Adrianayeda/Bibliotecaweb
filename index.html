@@ -1,121 +1,121 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Validar Pista</title>
-    <style>
-        body {
-            background-color: purple;
-            color: white;
-            text-align: center;
-            font-family: Arial, sans-serif;
-        }
-        .menu {
-            background-color: #F5DEB3;
-            color: black;
-            width: 50%;
-            margin: auto;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-        }
-        input {
-            padding: 10px;
-            font-size: 16px;
-            width: 80%;
-            border-radius: 8px;
-            border: 1px solid #ccc;
-        }
-        button {
-            padding: 10px;
-            font-size: 16px;
-            background-color: white;
-            color: black;
-            border: none;
-            cursor: pointer;
-            border-radius: 8px;
-            margin-top: 10px;
-        }
-
-        /* ESTILOS PARA LA VENTANA MODAL */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.6);
-        }
-        .modal-content {
-            background-color: white;
-            color: black;
-            margin: 15% auto;
-            padding: 20px;
-            border-radius: 10px;
-            width: 40%;
-            text-align: center;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-        }
-        .close {
-            color: red;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        .close:hover {
-            color: darkred;
-        }
-    </style>
-</head>
-<body>
-
-<div class="menu">
-    <h2>Ingrese la pista/palabra clave</h2>
-    <input type="text" id="clave">
-    <br>
-    <button onclick="validarClave()">Enviar</button>
-</div>
-
-<!-- MODAL PARA MOSTRAR RESULTADOS -->
-<div id="modal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="cerrarModal()">&times;</span>
-        <h3 id="modalMensaje"></h3>
-        <div id="modalContenido"></div>
-    </div>
-</div>
-
-<script>
-    function validarClave() {
-        let clave = document.getElementById("clave").value.toLowerCase().trim();
-        let pistas = {
-            "perro": "<img src='https://media1.tenor.com/m/PCo4bNeOB6gAAAAC/duck-spinning.gif' width='50' height='50' alt='Gatito'>",
-            "codigo": "<p>La programación es la clave del futuro</p>"
-        };
-
-        let modal = document.getElementById("modal");
-        let mensaje = document.getElementById("modalMensaje");
-        let contenido = document.getElementById("modalContenido");
-
-        if (pistas[clave]) {
-            mensaje.innerText = "¡Enhorabuena!";
-            contenido.innerHTML = pistas[clave];
-        } else {
-            mensaje.innerText = "Nou, esta no es la pista que estamos buscando";
-            contenido.innerHTML = "";
-        }
-
-        modal.style.display = "block";
-    }
-
-    function cerrarModal() {
-        document.getElementById("modal").style.display = "none";
-    }
-</script>
-
-</body>
+<!DOCTYPE html>  
+<html lang="es">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Validar Pista</title>  
+    <style>  
+        body {  
+            background-color: purple;  
+            color: white;  
+            text-align: center;  
+            font-family: Arial, sans-serif;  
+        }  
+        .menu {  
+            background-color: #F5DEB3;  
+            color: black;  
+            width: 50%;  
+            margin: auto;  
+            padding: 20px;  
+            border-radius: 15px;  
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);  
+        }  
+        input {  
+            padding: 10px;  
+            font-size: 16px;  
+            width: 80%;  
+            border-radius: 8px;  
+            border: 1px solid #ccc;  
+        }  
+        button {  
+            padding: 10px;  
+            font-size: 16px;  
+            background-color: white;  
+            color: black;  
+            border: none;  
+            cursor: pointer;  
+            border-radius: 8px;  
+            margin-top: 10px;  
+        }  
+  
+        /* ESTILOS PARA LA VENTANA MODAL */  
+        .modal {  
+            display: none;  
+            position: fixed;  
+            z-index: 1;  
+            left: 0;  
+            top: 0;  
+            width: 100%;  
+            height: 100%;  
+            background-color: rgba(0, 0, 0, 0.6);  
+        }  
+        .modal-content {  
+            background-color: white;  
+            color: black;  
+            margin: 15% auto;  
+            padding: 20px;  
+            border-radius: 10px;  
+            width: 40%;  
+            text-align: center;  
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);  
+        }  
+        .close {  
+            color: red;  
+            float: right;  
+            font-size: 28px;  
+            font-weight: bold;  
+            cursor: pointer;  
+        }  
+        .close:hover {  
+            color: darkred;  
+        }  
+    </style>  
+</head>  
+<body>  
+  
+<div class="menu">  
+    <h2>Ingrese la pista/palabra clave</h2>  
+    <input type="text" id="clave">  
+    <br>  
+    <button onclick="validarClave()">Enviar</button>  
+</div>  
+  
+<!-- MODAL PARA MOSTRAR RESULTADOS -->  
+<div id="modal" class="modal">  
+    <div class="modal-content">  
+        <span class="close" onclick="cerrarModal()">&times;</span>  
+        <h3 id="modalMensaje"></h3>  
+        <div id="modalContenido"></div>  
+    </div>  
+</div>  
+  
+<script>  
+    function validarClave() {  
+        let clave = document.getElementById("clave").value.toLowerCase().trim();  
+        let pistas = {  
+            "perro": "<img src='https://media1.tenor.com/m/PCo4bNeOB6gAAAAC/duck-spinning.gif' width='50' height='50' alt='Gatito'>",  
+            "codigo": "<p>La programación es la clave del futuro</p>"  
+        };  
+  
+        let modal = document.getElementById("modal");  
+        let mensaje = document.getElementById("modalMensaje");  
+        let contenido = document.getElementById("modalContenido");  
+  
+        if (pistas[clave]) {  
+            mensaje.innerText = "¡Enhorabuena!";  
+            contenido.innerHTML = pistas[clave];  
+        } else {  
+            mensaje.innerText = "Nou, esta no es la pista que estamos buscando";  
+            contenido.innerHTML = "";  
+        }  
+  
+        modal.style.display = "block";  
+    }  
+  
+    function cerrarModal() {  
+        document.getElementById("modal").style.display = "none";  
+    }  
+</script>  
+  
+</body>  
 </html>
